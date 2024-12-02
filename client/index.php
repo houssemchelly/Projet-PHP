@@ -1,7 +1,7 @@
 <?php
 // Fichier : index.php
 require 'connection.php';
-
+session_start();
 // Récupérer tous les animaux
 $stmt = $bd->query("
     SELECT s.id AS sousType_id, s.name, s.image, s.prix, c.nom AS categorie
@@ -19,16 +19,23 @@ $animaux = $stmt->fetchAll();
     <title>Liste des animaux</title>
 </head>
 <body>
-    <h1>Liste des animaux</h1><a href="logout.php">logout</a>*
-    <?php echo $_SESSION['id'] ?>
-    <?php foreach ($animaux as $animal): ?>
+    <h1>Liste des animaux</h1>    
+    <?php 
+    if(isset($_SESSION['id'])){ 
+        echo "<a href='logout.php'>logout</a>";
+        
+    }else{ 
+        echo "<a href='login1.php'>login</a>";
+    } 
+    ?>
+    <?php foreach ($animaux as $animal){ ?>
         <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
             <h2><?php echo htmlspecialchars($animal['name']); ?></h2>
             <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="<?php echo htmlspecialchars($animal['name']); ?>" style="max-width: 150px;">
-            <p>Prix : <?php echo htmlspecialchars($animal['prix']); ?> €</p>
+            <p>Prix : <?php echo htmlspecialchars($animal['prix']); ?> DT</p>
             <p>Catégorie : <?php echo htmlspecialchars($animal['categorie']); ?></p>
-            <a href="animal_details.php?id=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
+            <a href="animal_details.php?user=<?php echo $_GET['user']; ?>&idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
         </div>
-    <?php endforeach; ?>
+    <?php } ?>
 </body>
 </html>

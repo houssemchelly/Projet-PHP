@@ -4,11 +4,11 @@ session_start();
 require 'connection.php';
 
 // Vérifier si un ID d'animal est passé
-if (!isset($_GET['id'])) {
+if (!isset($_GET['idAnim'])) {
     die("Animal non spécifié.");
 }
 
-$animal_id = intval($_GET['id']); // Récupérer l'ID de l'animal depuis l'URL
+$animal_id = intval($_GET['idAnim']); // Récupérer l'ID de l'animal depuis l'URL
 
 // Récupérer les détails de l'animal depuis la base de données
 $stmt = $bd->prepare("

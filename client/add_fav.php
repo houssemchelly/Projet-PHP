@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-    $user=$_GET["utilisateur_id"];
+    $user=$_GET["user"];
     $subtype=$_GET["sousType_id"];
 
     $insert=$bd->prepare("insert into favoris (utilisateur_id, sousType_id) values (:user, :subtype)");

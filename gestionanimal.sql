@@ -82,7 +82,7 @@ CREATE TABLE `utilisateur` (
   `email` varchar(255) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL,
   `type` varchar(25) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
