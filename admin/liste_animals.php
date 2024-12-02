@@ -11,8 +11,8 @@
         echo "<td>" . ($row['id']) . "</td>";
         echo "<td>" . ($row['id_categories']) . "</td>";
         echo "<td>" . ($row['type']) . " </td>";
-        // echo "<td><a href='supp_produit.php?numP=" . $row['numP'] . "' onclick=\"return confirm('Voulez-vous vraiment supprimer ce produit ?');\">Supprimer</a> 
-        // <a href='modif_produit.php?numP=" . $row['numP'] . "'>modifier</a></td>";
+        echo "<td><a href='supp_produit.php?id=" . $row['id'] . "' onclick=\"return confirm('Voulez-vous vraiment supprimer ce produit ?');\">Supprimer</a> 
+        <a href='modif_animal.php?id=" . $row['id'] . "'>modifier</a></td>";
         echo "</tr>";
     }
 
