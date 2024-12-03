@@ -1,13 +1,13 @@
 <?php
-include 'connection.php';
+include '../../connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
-    $categorie = $_POST['categorie'];
+    $id_categories = $_POST['id_categories'];
     $type = $_POST['type'];
 
-    $update = $dbh->prepare("UPDATE animal SET categorie = :categorie, type = :type WHERE id = :id");
-    $update->bindParam(':categorie', $categorie);
+    $update = $bd->prepare("UPDATE animal SET id_categories = :id_categories, type = :type WHERE id = :id");
+    $update->bindParam(':id_categories', $id_categories);
     $update->bindParam(':type', $type);
     $update->bindParam(':id', $id, PDO::PARAM_INT);
 

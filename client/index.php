@@ -1,6 +1,6 @@
 <?php
 // Fichier : index.php
-require 'connection.php';
+require '../connection.php';
 session_start();
 // Récupérer tous les animaux
 $stmt = $bd->query("

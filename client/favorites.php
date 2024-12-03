@@ -1,7 +1,7 @@
 <?php
 // Fichier : favorites.php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['id'])) {
     echo "Connectez-vous pour gérer vos favoris.";

@@ -1,7 +1,7 @@
 <?php
 // Fichier : animal_details.php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
 // Vérifier si un ID d'animal est passé
 if (!isset($_GET['idAnim'])) {
