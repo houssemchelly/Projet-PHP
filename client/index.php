@@ -34,7 +34,7 @@ $animaux = $stmt->fetchAll();
             <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="<?php echo htmlspecialchars($animal['name']); ?>" style="max-width: 150px;">
             <p>Prix : <?php echo htmlspecialchars($animal['prix']); ?> DT</p>
             <p>Catégorie : <?php echo htmlspecialchars($animal['categorie']); ?></p>
-            <a href="animal_details.php?user=<?php echo $_GET['user']; ?>&idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
+            <a href="animal_details.php?user=<?php echo $_GET['user']; ?>&id=<?php echo $_GET['id']; ?>&idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
         </div>
     <?php } ?>
 </body>
