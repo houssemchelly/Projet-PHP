@@ -13,10 +13,10 @@
         echo "<td>" . ($row['name']) . " </td>";
         echo "<td><img src='" . ($row['image']) . "' style='max-width: 75px'> </td>";
         echo "<td>" . ($row['prix']) . " </td>";
-        echo "<td><a href='supp_animal.php?id=" . $row['id'] . "' onclick=\"return confirm('Voulez-vous vraiment supprimer ce produit ?');\">Supprimer</a> 
-        <a href='modif_animal.php?id=" . $row['id'] . "'>modifier</a></td>";
+        echo "<td><a href='supp_sous_animal.php?id=" . $row['id'] . "' onclick=\"return confirm('Voulez-vous vraiment supprimer ce produit ?');\">Supprimer</a> 
+        <a href='modif_sous_animal.php?id=" . $row['id'] . "'>modifier</a></td>";
         echo "</tr>";
     }
 
     echo "</table>";
-    echo "<br><a href='ajouter_animal.php'><button>Ajouter</button></a>";?>
+    echo "<br><a href='ajouter_sous_animal.php'><button>Ajouter</button></a>";?>
