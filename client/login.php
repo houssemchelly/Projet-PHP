@@ -13,12 +13,16 @@
             $user = $bd->prepare("SELECT COUNT(*) FROM utilisateur WHERE mot_de_passe = ? AND nom = ?");
             $user->execute([$mot_de_passe, $nom]);
             if ($user->fetchColumn() > 0) {
-                $idQuery = $bd->prepare("SELECT id FROM utilisateur WHERE mot_de_passe = ? AND nom = ?");
+                $idQuery = $bd->prepare("SELECT id, type FROM utilisateur WHERE mot_de_passe = ? AND nom = ?");
                 $idQuery->execute([$mot_de_passe, $nom]);
                 $userData = $idQuery->fetch(PDO::FETCH_ASSOC);
-                if ($userData) {
+                if ($userData && $userData['type']=='visiteur') {
                     $_SESSION['id'] = $userData['id'];
-                    header("Location: index.php?user=" . $nom."&id=".$userData['id']);
+                    header("Location: index.php?user=" . $nom."&type=" . $userData['type']."&id=".$userData['id']);
+                    exit;
+                }else if ($userData && $userData['type']=='admin') {
+                    $_SESSION['id'] = $userData['id'];
+                    header("Location: ../admin/index.php?user=" . $nom."&type=" . $userData['type']."&id=".$userData['id']);
                     exit;
                 }
             } else {

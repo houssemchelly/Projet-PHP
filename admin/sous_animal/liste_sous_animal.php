@@ -5,7 +5,7 @@
     echo "<h1>Liste des sous animeaux</h1>";
     echo "<table border='1'>";
     echo "<tr><th>Numéro </th><th>type</th><th>name</th><th>image</th><th>prix</th></tr>";
-
+    echo '<a href="../index.php">Home</a>' ;
     while ($row = $s_animal->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
         echo "<td>" . ($row['id']) . "</td>";

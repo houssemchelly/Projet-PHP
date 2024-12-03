@@ -23,7 +23,6 @@ $animaux = $stmt->fetchAll();
     <?php 
     if(isset($_SESSION['id'])){ 
         echo "<a href='logout.php'>logout</a>";
-        
     }else{ 
         echo "<a href='login1.php'>login</a>";
     } 
@@ -34,7 +33,15 @@ $animaux = $stmt->fetchAll();
             <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="<?php echo htmlspecialchars($animal['name']); ?>" style="max-width: 150px;">
             <p>Prix : <?php echo htmlspecialchars($animal['prix']); ?> DT</p>
             <p>Catégorie : <?php echo htmlspecialchars($animal['categorie']); ?></p>
-            <a href="animal_details.php?user=<?php echo $_GET['user']; ?>&id=<?php echo $_GET['id']; ?>&idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
+            <?php 
+                if(isset($_SESSION['id'])){ ?>
+                    <a href="animal_details.php?user=<?php echo $_GET['user']; ?>&id=<?php echo $_GET['id']; ?>&idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
+                    <?php 
+                }else{ ?>
+                    <a href="animal_details.php?idAnim=<?php echo $animal['sousType_id']; ?>">Voir les détails</a>
+                <?php 
+                } ?>
+                
         </div>
     <?php } ?>
 </body>

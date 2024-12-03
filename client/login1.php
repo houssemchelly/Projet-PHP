@@ -23,6 +23,7 @@
             <button type="submit">S'inscrire</button>
         </form>
         <p>n'a pas un compte ? <a href="register1.php">inscrire ici</a></p>
+        <a href="index.php">continue without login</a>
     </div>
 </body>
 </html>

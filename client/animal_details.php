@@ -55,7 +55,14 @@ if (!$animal) {
     <?php else: ?>
     <p><a href="login1.php">Connectez-vous</a> pour ajouter cet animal aux favoris.</p>
     <?php endif; ?>
-
-    <a href="index.php?user=<?php $_GET['user'] ?>&id=<?php $_SESSION['id'] ?>">Retour à la liste des animaux</a>
+    <?php 
+    if(isset($_SESSION['id'])){ ?>
+        <a href="index.php?user=<?php $_GET['user'] ?>&id=<?php $_SESSION['id'] ?>">Retour à la liste des animaux</a>
+        <?php 
+    }else{ ?>
+        <a href="index.php">Retour à la liste des animaux</a>
+    <?php 
+    } ?>
+    
 </body>
 </html>
