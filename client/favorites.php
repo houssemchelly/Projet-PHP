@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $stmt = $bd->prepare("DELETE FROM favoris WHERE utilisateur_id = ? AND sousType_id = ?");
         $stmt->execute([$utilisateur_id, $sousType_id]);
     }
-    header("Location: index.php?user=". $_GET['user']."&id=". $utilisateur_id);
+    header("Location: liste_favoris.php?user=". $_GET['user']."&id=". $utilisateur_id);
     exit;
 }
 ?>

@@ -23,7 +23,7 @@
                 }else if ($userData && $userData['type']=='admin') {
                     $_SESSION['id'] = $userData['id'];
                     header("Location: ../admin/index.php?user=" . $nom."&type=" . $userData['type']."&id=".$userData['id']);
-                    exit;
+                    exit;   
                 }
             } else {
                 $_SESSION['error'] = "Vérifiez vos informations.";
