@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("location: ../client/login1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
